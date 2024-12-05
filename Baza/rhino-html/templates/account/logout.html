@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load allauth i18n %}
+{% block head_title %}
+    {% trans "Sign Out" %}
+{% endblock head_title %}
+{% block content %}
+      <div class="news_section layout_padding">
+      <div class="container">
+          <br>
+          <h1 class="banner_taital">Wyloguj się</h1>
+          <div class="email_text">
+    {% element p %}
+        {% trans 'Napewno chcesz się wylogować??' %}
+    {% endelement %}
+    {% url 'account_logout' as action_url %}
+    {% element form method="post" action=action_url no_visible_fields=True %}
+        {% slot body %}
+            {% csrf_token %}
+            {{ redirect_field }}
+        {% endslot %}
+        {% slot actions %}
+              <div class="send_btn">
+            {% element button class="send_btn" type="submit" %}
+                {% trans "Wyloguj" %}
+            {% endelement %}
+              </div>
+        {% endslot %}
+    {% endelement %}
+          </div>
+      </div>
+      </div>
+{% endblock content %}

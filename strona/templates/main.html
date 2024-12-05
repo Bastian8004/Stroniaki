@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="banner_main">
+    <div id="myCarousel" class="carousel slide banner" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="carousel-caption  banner_po">
+                        <div class="build_box">
+                            {% for main in mains %}
+                            <h1 style="text-align:center">{{ main.Title }}</h1>
+                            <br>
+                            <br>
+                            <p style="text-align:center">{{ main.Description }}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

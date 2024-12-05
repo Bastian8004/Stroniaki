@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="banner_main">
+    <div id="myCarousel" class="carousel slide banner" data-ride="carousel">
+        <div class="choose">
+            <div class="container">
+                <div class="titlepage">
+                    <h2 style="text-align: center;">Oferta dla twojego biznesu!</h2>
+                    <p style="text-align: center;">Oferujemy kompleksowe usługi programistyczne, dostosowane do
+                        indywidualnych potrzeb klienta – Nasze podejście opiera się na pełnej analizie potrzeb i wymagań
+                        klienta. Projektujemy rozwiązania programistyczne, które dokładnie odpowiadają na wyzwania danej
+                        branży i specyfiki działalności. Dzięki współpracy z klientem na każdym etapie tworzenia
+                        oprogramowania, od analizy, przez projektowanie, aż po wdrożenie i utrzymanie, zapewniamy, że
+                        każde rozwiązanie jest w pełni funkcjonalne, wydajne i zgodne z wymaganiami biznesowymi.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="about">
+        <div class="container">
+            <!-- Pierwszy wiersz: Tekst po lewej, obrazek po prawej -->
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center">
+                    <div class="titlepage">
+                        <h2 style="text-align: center;">Strony internetowe</h2>
+                        <p style="text-align: center;">
+                            Tworzymy nowoczesne, responsywne strony internetowe, które nie tylko przyciągają uwagę
+                            dzięki estetycznemu designowi, ale także zapewniają doskonałą funkcjonalność na różnych
+                            urządzeniach. Każdy projekt jest dostosowywany do indywidualnych potrzeb klienta, aby
+                            zapewnić łatwą nawigację, szybkie ładowanie oraz optymalizację pod kątem SEO, co wpływa na
+                            lepszą widoczność w wyszukiwarkach.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center">
+                    <div class="calculator">
+                        <h2>Kalkulator Ceny Strony WWW</h2>
+                        <input type="number" id="area1" placeholder="Podaj liczbę podstron:" min="0" required>
+                        <button onclick="calculateWWW()">Oblicz cenę</button>
+                        <div class="result" id="result1"></div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <!-- Drugi wiersz: Obrazek po lewej, tekst po prawej -->
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center">
+                    <div class="calculator">
+                        <h2>Kalkulator Ceny aplikacji ADM</h2>
+                        <input type="number" id="area2" placeholder="Podaj liczbę obszarów do administracji:" min="0"
+                            required>
+                        <button onclick="calculateADM()">Oblicz cenę</button>
+                        <div class="result" id="result2"></div>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center">
+                    <div class="titlepage">
+                        <h2 style="text-align: center;">Aplikacje administracyjne</h2>
+                        <p style="text-align: center;">
+                            Oferujemy tworzenie zaawansowanych aplikacji administracyjnych, które usprawniają procesy
+                            zarządzania wewnętrznego w firmach. Nasze aplikacje automatyzują rutynowe zadania,
+                            umożliwiają lepsze zarządzanie danymi, monitorowanie wyników pracy i komunikację w zespole.
+                            Dzięki spersonalizowanemu podejściu, nasze narzędzia są doskonale dopasowane do specyfiki
+                            firmy i jej potrzeb operacyjnych.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center">
+                    <div class="titlepage">
+                        <h2 style="text-align: center;">Systemy CRM</h2>
+                        <p style="text-align: center;">
+                            Tworzymy dedykowane systemy zarządzania relacjami z klientami (CRM), które pozwalają na
+                            efektywne organizowanie danych o klientach, śledzenie interakcji, zarządzanie sprzedażą i
+                            budowanie długotrwałych relacji biznesowych. Nasze systemy wspierają procesy marketingowe i
+                            sprzedażowe, umożliwiając analizowanie wyników, prognozowanie trendów oraz automatyzację
+                            wielu działań, co pozwala na oszczędność czasu i zwiększenie efektywności działań
+                            handlowych.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center">
+                    <div class="calculator">
+                        <h2>Kalkulator Ceny aplikacji CRM dla Biznesu</h2>
+                        <input type="number" id="area3" placeholder="Podaj liczbę możliwych aplikacji użytkowych:"
+                            min="0" required>
+                        <button onclick="calculateCRM()">Oblicz cenę</button>
+                        <div class="result" id="result3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="myCarousel" class="carousel slide banner" data-ride="carousel">
+        <div class="choose">
+            <div class="container">
+                <div class="titlepage">
+                    <h2 style="text-align: center;">Indywidualne podejście</h2>
+                    <p style="text-align: center;">Dostosowujemy nasze rozwiązania do specyfiki każdej firmy,
+                        zapewniając wsparcie techniczne oraz rozwój oprogramowania na najwyższym poziomie – Rozumiemy,
+                        że każda firma ma unikalne potrzeby, dlatego każde nasze rozwiązanie jest indywidualnie
+                        dopasowane do specyfiki działalności. Zajmujemy się zarówno tworzeniem oprogramowania, jak i
+                        jego późniejszym rozwojem, dostosowywaniem oraz optymalizowaniem. Oferujemy również pełne
+                        wsparcie techniczne, które obejmuje pomoc w rozwiązywaniu problemów, aktualizacje oraz rozwój
+                        funkcji w miarę jak rosną potrzeby firmy. Dzięki elastycznemu podejściu jesteśmy w stanie
+                        zapewnić, że nasze oprogramowanie będzie rosło razem z Twoim biznesem, dając Ci narzędzia do
+                        skutecznej rywalizacji na rynku.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function calculateWWW() {
+        const area = parseFloat(document.getElementById('area1').value);
+        const pricePerSquareMeter = 1000;
+
+        if (isNaN(area) || area <= 0) {
+            document.getElementById('result1').innerText = 'Podaj liczbę podstron:';
+            return;
+        }
+
+        const totalPrice = area * pricePerSquareMeter;
+
+        document.getElementById('result1').innerText = `Przybliżona cena: ${totalPrice.toFixed(2)} PLN`;
+    }
+
+    function calculateADM() {
+        const area = parseFloat(document.getElementById('area2').value);
+        const pricePerSquareMeter = 2500;
+
+        if (isNaN(area) || area <= 0) {
+            document.getElementById('result2').innerText = 'Podaj liczbę obszarów do administracji:';
+            return;
+        }
+
+        const totalPrice = area * pricePerSquareMeter;
+
+        document.getElementById('result2').innerText = `Przybliżona cena: ${totalPrice.toFixed(2)} PLN`;
+    }
+
+    function calculateCRM() {
+        const area = parseFloat(document.getElementById('area3').value);
+        const pricePerSquareMeter = 5000;
+
+        if (isNaN(area) || area <= 0) {
+            document.getElementById('result3').innerText = 'Podaj liczbę możliwych aplikacji użytkowych:';
+            return;
+        }
+
+        const totalPrice = area * pricePerSquareMeter;
+
+        document.getElementById('result3').innerText = `Przybliżona cena: ${totalPrice.toFixed(2)} PLN`;
+    }
+</script>
+
+{% endblock %}

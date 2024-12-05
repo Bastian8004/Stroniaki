@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="about">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="titlepage">
+                <h2>Dodaj</h2>
+                <br>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary">Dodaj</button>
+                </form>
+                <button onClick="history.back();" class="btn btn-primary">Powrót do listy</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

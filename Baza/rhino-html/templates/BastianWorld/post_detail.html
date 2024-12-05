@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="news_section layout_padding">
+    <div class="container">
+        <h1 class="client_taital">{{ blog.tytul }}</h1>
+        {% if user.is_authenticated %}
+             <button onclick="window.location.href='{% url 'post_post_new_BW' blog.pk %}'" class="btn btn-success">Nowa sekcja</button>
+        {% endif %}
+        <br>
+        <hr style="background-color:white">
+        {% for post in posts %}
+            {% if post.lewo == True %}
+        {% if user.is_authenticated %}
+             <button onclick="window.location.href='{% url 'post_post_edit_BW' blog.pk post.pk %}'" class="btn btn-primary">Edycja</button>
+             <button onclick="window.location.href='{% url 'post_post_delete_BW' blog.pk post.pk %}'" class="btn btn-danger">Usuń</button>
+              {% endif %}
+                <br>
+                <div class="news_section_2">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="news_taital_box">
+                                <h1 class="client_taital">{{ post.tytul }}</h1>
+                                <p class="lorem_text">{{ post.opis|linebreaksbr }}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 d-flex justify-content-center">
+                            <img src="{{ post.zdjecie.url }}" class="image_6">
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <hr style="background-color:white">
+
+            {% elif post.prawo == True %}
+        {% if user.is_authenticated %}
+             <button onclick="window.location.href='{% url 'post_post_edit_BW' blog.pk post.pk %}'" class="btn btn-primary">Edycja</button>
+             <button onclick="window.location.href='{% url 'post_post_delete_BW' blog.pk post.pk %}'" class="btn btn-danger">Usuń</button>
+              {% endif %}
+                <br>
+                <div class="news_section_2">
+                    <div class="row">
+                        <div class="col-md-6 d-flex justify-content-center">
+                            <img src="{{ post.zdjecie.url }}" class="image_6">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="news_taital_box">
+                                <h1 class="client_taital">{{ post.tytul }}</h1>
+                                <p class="lorem_text">{{ post.opis|linebreaksbr }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <hr style="background-color:white">
+
+            {% elif post.srodek == True %}
+        {% if user.is_authenticated %}
+             <button onclick="window.location.href='{% url 'post_post_edit_BW' blog.pk post.pk %}'" class="btn btn-primary">Edycja</button>
+             <button onclick="window.location.href='{% url 'post_post_delete_BW' blog.pk post.pk %}'" class="btn btn-danger">Usuń</button>
+              {% endif %}
+                <br>
+                <div class="news_section_2 text-center">  <!-- Center the image -->
+                    <img src="{{ post.zdjecie.url }}" class="image_6">
+                </div>
+                <br>
+                <hr style="background-color:white">
+
+            {% elif post.bez == True %}
+        {% if user.is_authenticated %}
+             <button onclick="window.location.href='{% url 'post_post_edit_BW' blog.pk post.pk %}'" class="btn btn-primary">Edycja</button>
+             <button onclick="window.location.href='{% url 'post_post_delete_BW' blog.pk post.pk %}'" class="btn btn-danger">Usuń</button>
+              {% endif %}
+                <br>
+                <div class="news_section_2">
+                    <div class="row">
+                        <div class="col-md-12">  <!-- Full width description -->
+                            <div class="news_taital_box">
+                                <h1 class="client_taital">{{ post.tytul }}</h1>
+                                <p class="lorem_text">{{ post.opis|linebreaksbr }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% if post.zdjecie %}
+                <img src="{{ post.zdjecie.url }}" class="image_6">
+            {% else %}
+                <br>
+            {% endif %}
+
+
+            {% endif %}
+        {% endfor %}
+        <br>
+        <br>
+        <h3 class="news_text">{{ blog.data }}</h3>
+        <hr style="background-color:white">
+
+    </div>
+</div>
+
+{% endblock %}

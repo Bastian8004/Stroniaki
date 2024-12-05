@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load allauth %}
+{% block head_title %}
+    {% trans "Verify Your Email Address" %}
+{% endblock head_title %}
+{% block content %}
+      <div class="news_section layout_padding">
+      <div class="container">
+          <br>
+          <h1 class="banner_taital">Werryfikacja email</h1>
+          <div class="email_text">
+    {% element p %}
+        {% blocktrans %}Wysłaliśmy do Ciebie e-mail w celu weryfikacji. Kliknij w podany link, aby dokończyć proces rejestracji. Jeśli nie widzisz wiadomości w głównej skrzynce odbiorczej, sprawdź folder spam. Skontaktuj się z nami, jeśli nie otrzymasz wiadomości weryfikacyjnej w ciągu kilku minut.{% endblocktrans %}
+    {% endelement %}
+          </div>
+      </div>
+      </div>
+{% endblock content %}

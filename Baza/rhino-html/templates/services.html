@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+      <div class="news_section layout_padding">
+         <div class="container">
+            <h1 class="banner_taital">Usługi serwisowe</h1>
+            {% if user.is_authenticated %}
+             <button onclick="window.location.href='{% url 'services_new' %}'" class="btn btn-success">Dodaj usługe</button>
+              {% endif %}
+            <br>
+          <br>
+                         <br>
+          <br>
+             <br>
+          <hr style="background-color:white">
+            {% for service in services %}
+            {% if service.right == True %}
+            {% if user.is_authenticated %}
+             <button onclick="window.location.href='{% url 'services_edit' pk=service.pk %}'" class="btn btn-primary">Edycja</button>
+             <button onclick="window.location.href='{% url 'services_delete' pk=service.pk %}'" class="btn btn-danger">Usuń</button>
+              {% endif %}
+             <br>
+             <br>
+             <br>
+            <div class="news_section_2">
+               <div class="row">
+                  <div class="col-md-6">
+                     <div class="news_taital_box">
+                        <h1 class="client_taital">{{ service.title }}</h1>
+                        <p class="lorem_text">{{ service.description|linebreaksbr }}</p>
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <img src="{{ service.photo.url }}" class="image_6" style="width:100%">
+                  </div>
+               </div>
+            </div>
+            <br>
+            <hr style="background-color:white">
+            {% elif service.left == True %}
+            {% if user.is_authenticated %}
+             <button onclick="window.location.href='{% url 'services_edit' pk=service.pk %}'" class="btn btn-primary">Edycja</button>
+             <button onclick="window.location.href='{% url 'services_delete' pk=service.pk %}'" class="btn btn-danger">Usuń</button>
+              {% endif %}
+             <br>
+             <br>
+             <br>
+            <div class="news_section_2">
+               <div class="row">
+                  <div class="col-md-6">
+                     <img src="{{ service.photo.url }}" class="image_6" style="width:100%">
+                  </div>
+                  <div class="col-md-6">
+                     <div class="news_taital_box">
+                        <h1 class="client_taital">{{ service.title }}</h1>
+                        <p class="lorem_text">{{ service.description|linebreaksbr }}</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <br>
+            <hr style="background-color:white">
+            {% endif %}
+            {% endfor %}
+         </div>
+      </div>
+{% endblock %}

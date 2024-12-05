@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="banner_main">
+    <div id="myCarousel" class="carousel slide banner" data-ride="carousel">
+        <div class="container">
+            <div class="titlepage">
+                <h2 style="text-align: center;">{{ blog.Title }}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="about">
+        {% for post in posts %}
+        {% if post.Left %}
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center">
+                    <div class="titlepage">
+                        <h2 style="text-align: center;">{{ post.Title }}</h2>
+                        <p style="text-align: center;">{{ post.Description|linebreaksbr }}</p>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center">
+                    <figure>
+                        <img src="{{ post.Photo.url }}" alt="About Image" class="img-fluid" />
+                    </figure>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+        </div>
+        {% elif post.Right %}
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center">
+                    <figure>
+                        <img src="{{ post.Photo.url }}" alt="About Image" class="img-fluid" />
+                    </figure>
+                </div>
+                <div class="col-md-6 text-center">
+                    <div class="titlepage">
+                        <h2 style="text-align: center;">{{ post.Title }}</h2>
+                        <p style="text-align: center;">{{ post.Description|linebreaksbr }}</p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+        </div>
+        {% elif post.Middle %}
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="text-center">
+                    <div class="titlepage">
+                        <h2 style="text-align: center;">{{ post.Title }}</h2>
+                        <p style="text-align: center;">{{ post.Description|linebreaksbr }}</p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+        </div>
+        {% if post.zdjecie %}
+        <img src="{{ post.Photo.url }}" class="image_6">
+        {% else %}
+        <br>
+        {% endif %}
+        {% elif post.Empty %}
+        <div class="text-center">
+            <img src="{{ post.Photo.url }}" alt="Centered Image" class="img-fluid" />
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div id="myCarousel" class="carousel slide banner" data-ride="carousel">
+        <div class="choose">
+            <div class="container">
+                <div class="titlepage">
+                    <p style="text-align: center;">{{ blog.data }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

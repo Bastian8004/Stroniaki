@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<button onclick="window.location.href='{% url 'about_us_new' %}'" class="btn btn-success">Dodaj </button>
+{% endif %}
+
+
+<div class="about">
+    <div class="container">
+        {% for about in abouts %}
+        {% if about.Right == True %}
+        {% if user.is_authenticated %}
+        <button onclick="window.location.href='{% url 'about_us_edit' pk=about.pk %}'"
+            class="btn btn-primary">Edycja</button>
+        <button onclick="window.location.href='{% url 'about_us_delete' pk=about.pk %}'"
+            class="btn btn-danger">Usuń</button>
+        {% endif %}
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center">
+                <div class="titlepage">
+                    <h2>{{ about.Title }}</h2>
+                    <p>{{ about.Description|linebreaksbr }}</p>
+                </div>
+            </div>
+            <div class="col-md-6 text-center">
+                <figure>
+                    <img src="{{ about.Photo.url }}" alt="About Image" class="img-fluid" />
+                </figure>
+            </div>
+        </div>
+        {% elif about.Left == True %}
+        {% if user.is_authenticated %}
+        <button onclick="window.location.href='{% url 'about_us_edit' pk=about.pk %}'"
+            class="btn btn-primary">Edycja</button>
+        <button onclick="window.location.href='{% url 'about_us_delete' pk=about.pk %}'"
+            class="btn btn-danger">Usuń</button>
+        {% endif %}
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center">
+                <figure>
+                    <img src="{{ about.Photo.url }}" alt="About Image" class="img-fluid" />
+                </figure>
+            </div>
+            <div class="col-md-6 text-center">
+                <div class="titlepage">
+                    <h2>{{ about.Title }}</h2>
+                    <p>{{ about.Description|linebreaksbr }}</p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}
