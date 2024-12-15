@@ -1,9 +1,0 @@
-{% extends "account/email/base_message.txt" %}
-{% load account %}
-{% load i18n %}
-
-{% block content %}{% autoescape off %}{% user_display user as user_display %}{% blocktranslate with site_name=current_site.name site_domain=current_site.domain %}Otrzymujesz tę wiadomość e-mail, ponieważ użytkownik {{ user_display }} podał Twój adres e-mail, aby zarejestrować konto na {{ site_domain }}.{% endblocktranslate %}
-
-{% if code %}{% blocktranslate %}Twój link weryfikacyjny znajduje się poniżej.{% endblocktranslate %}
-
-{{ code }}{% else %}{% blocktranslate %}Aby potwierdzić, że jest to poprawne, przejdź do {{ activate_url }}{% endblocktranslate %}{% endif %}{% endautoescape %}{% endblock content %}
